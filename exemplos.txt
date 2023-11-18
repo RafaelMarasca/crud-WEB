@@ -1,0 +1,21 @@
+curl -d placa=ABC-1234 -d marca=hyundai -d modelo=hb20 -d km=23000 -d ano=2006 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=000.000.000-00 -d nome=Ronaldo -d "cidade=Rio de Janeiro" -d nascimento=18/09/1976 -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=ABC-1234 -d marca=hyundai -d modelo=hb20 -d km=23000 -d ano=2006 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=ABC-1234 -d marca=volkswagen -d modelo=gol -d km=24000 -d ano=2005 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BRA2E19 -d marca=volkswagen -d modelo=gol -d km=24000 -d ano=2005 -d combustivel=gasolina -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BRA2E19 -d marca=volkswagen -d modelo=gol -d km=-24000 -d ano=2005 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BRA2E19 -d marca=volkswagen -d modelo=gol -d km=24000 -d ano=2005 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=abc-abc -d marca=fiat -d modelo=uno -d km=10000000000 -d ano=2005 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BBB-1111 -d marca=fiat -d modelo=uno -d km=10000000000 -d ano=2005 -d combustivel=gasolina -d proprietario=111.111.111-11 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=000.000.000-00 -d nome=Robson -d "cidade=Rio de Janeiro" -d nascimento=10/05/1990 -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=111.111.111-11 -d nome=Robson -d "cidade=Rio de Janeiro" -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=111.111.111-11 -d nome=Robson -d "cidade=Rio de Janeiro" -d nascimento=1005/1990 -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=111.111.11111 -d nome=Robson -d "cidade=Rio de Janeiro" -d nascimento=10/05/1990 -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d cpf=111.111.111-11 -d nome=Robson -d "cidade=Rio de Janeiro" -d nascimento=10/05/1990 -X POST "http://127.0.0.1:1234/person/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BBB-1111 -d marca=fiat -d modelo=uno -d km=10000000000 -d ano=2005 -d combustivel=gasolina -d proprietario=000.000.000-00 -X POST "http://127.0.0.1:1234/cars/create" > foo.html && firefox %cd%\foo.html
+curl -d placa=BBB-1111 -d km=20000000000 -d proprietario=111.111.111-11 -X PATCH "http://127.0.0.1:1234/cars/update" > foo.html && firefox %cd%\foo.html
+curl -d cpf=111.111.111-11 -d "cidade=São Paulo" -X PATCH "http://127.0.0.1:1234/person/update" > foo.html && firefox %cd%\foo.html
+curl -G -d cpf=111.111.111-11 -X DELETE "http://127.0.0.1:1234/person/delete" > foo.html && firefox %cd%\foo.html
+curl -G -d cpf=000.000.000-00 -X GET "http://127.0.0.1:1234/person/read" > foo.html && firefox %cd%\foo.html
+curl -G -d cpf=111.111.111-11 -X GET "http://127.0.0.1:1234/person/read" > foo.html && firefox %cd%\foo.html
+curl -G -d placa=BBB-1111 -X GET "http://127.0.0.1:1234/cars/read" > foo.html && firefox %cd%\foo.html
