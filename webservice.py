@@ -101,9 +101,9 @@ class Resource(object):
             raise cherrypy.HTTPError(404,'Carro não Encontrado')
         for key in args.keys():
             if key == 'km' and int(args['km']) < 0:
-                raise cherrypy.HTTPError(400, 'Quilometragem inválida!')
+                raise cherrypy.HTTPError(422, 'Quilometragem inválida!')
             elif key == 'ano' and int(args['ano']) < 0:
-                raise cherrypy.HTTPError(400, 'Ano inválido!')    
+                raise cherrypy.HTTPError(422, 'Ano inválido!')    
             elif key == 'proprietario' and args['proprietario'] != '':
                 if not args['proprietario'] in self.people.keys():
                     raise cherrypy.HTTPError(404, 'Proprietário não cadastrado')
@@ -138,11 +138,11 @@ class Resource(object):
         if not all(key in args.keys() for key in ['cpf', 'nome', 'cidade', 'nascimento']):
             raise cherrypy.HTTPError(400,'Dados incompletos!')            
         if not cpf_check(args['cpf']):
-            raise cherrypy.HTTPError(400, 'CPF inválido!')
+            raise cherrypy.HTTPError(422, 'CPF inválido!')
         if args['cpf'] in self.people   .keys():
-            raise cherrypy.HTTPError(400, 'CPF já cadastrado')
+            raise cherrypy.HTTPError(422, 'CPF já cadastrado')
         if not birth_check(args['nascimento']):
-            raise cherrypy.HTTPError(400, 'Data de nascimento precisa ter o formato DD/MM/AAAA!')
+            raise cherrypy.HTTPError(422, 'Data de nascimento precisa ter o formato DD/MM/AAAA!')
 
         
         self.people[args['cpf']] = {'cpf': args['cpf'], 
@@ -174,7 +174,7 @@ class Resource(object):
         
         for key in args.keys():
             if key == 'nascimento' and not birth_check(args['nascimento']):
-                raise cherrypy.HTTPError(400, 'Data de nascimento precisa ter o formato DD/MM/AAAA!')
+                raise cherrypy.HTTPError(422, 'Data de nascimento precisa ter o formato DD/MM/AAAA!')
         
             self.people[args['cpf']][key] = args[key] 
 
